@@ -15,22 +15,24 @@
         <hr>
 
         <div class="mt-4">
-            <h4>Interesser par ce bien ?</h4>
+            <h4>Interessé par ce bien ?</h4>
 
-            <form action="" method="post" class="vstack gap-3">
+            @include('shared.flash')
+
+            <form action="{{ route('property.contact', $property) }}" method="post" class="vstack gap-3">
                 @csrf
                 <div class="row">
-                    @include('shared.input', ['class' => 'col',  'name' => 'firstname', 'label' => 'Prenom'])
-                    @include('shared.input', ['class' => 'col',  'name' => 'lastname', 'label' => 'Nom'])
+                    @include('shared.input', ['class' => 'col',  'name' => 'firstname', 'label' => 'Prenom', 'value' => 'Mike'])
+                    @include('shared.input', ['class' => 'col',  'name' => 'lastname', 'label' => 'Nom', 'value' => 'Kibwe'])
                 </div>
                 <div class="row">
-                    @include('shared.input', ['class' => 'col',  'name' => 'phone', 'label' => 'Telephone'])
-                    @include('shared.input', ['type' => 'email', 'class'=> 'col', 'name' => 'email', 'label' => 'Email'])
+                    @include('shared.input', ['class' => 'col',  'name' => 'phone', 'label' => 'Telephone', 'value' => '099 345 67 89'])
+                    @include('shared.input', ['type' => 'email', 'class'=> 'col', 'name' => 'email', 'label' => 'Email', 'value' => 'kibwemike31@gmail.com'])
                 </div>
-                @include('shared.input', ['type' => 'textarea', 'class'=> 'col', 'name' => 'message', 'label' => 'Votre message'])
+                @include('shared.input', ['type' => 'textarea', 'class'=> 'col', 'name' => 'message', 'label' => 'Votre message', 'value' => 'Bonjour, je suis intéressé par ce bien. Pourriez-vous me contacter pour plus d\'informations ?'])
 
                 <div>
-                    <div class="btn btn-primary">Nous contacter</div>
+                    <button class="btn btn-primary">Nous contacter</button>
                 </div>
 
             </form>
